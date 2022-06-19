@@ -14256,7 +14256,18 @@ a.anchor-link {
     </script>
     <!-- End of mathjax configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="COVID-19-Visualization">COVID 19 Visualization<a class="anchor-link" href="#COVID-19-Visualization">&#182;</a></h2><p><br></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Python-Packages-used">Python Packages used<a class="anchor-link" href="#Python-Packages-used">&#182;</a></h3>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
@@ -14273,6 +14284,15 @@ a.anchor-link {
 </div>
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Source-of-Data">Source of Data<a class="anchor-link" href="#Source-of-Data">&#182;</a></h3><p>Data used in this Analysis is used from the John Hopkins Covid 19 Data. This time series summary data is available at <a href="https://github.com/CSSEGISandData/COVID-19/raw/master/csse_covid_19_data/csse_covid_19_time_series">https://github.com/CSSEGISandData/COVID-19/raw/master/csse_covid_19_data/csse_covid_19_time_series</a></p>
+<p>USA Covid 19 Confirmed Cases data from “time_series_covid19_confirmed_US.csv"</p>
+<p>USA Covid 19 Confirmed deaths data from “time_series_covid19_deaths_US.csv”</p>
+<p>Download the Data</p>
+
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -14342,6 +14362,11 @@ a.anchor-link {
 </div>
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h5 id="Clean-the-Data-set-by-removing-unnecessary-fields">Clean the Data set by removing unnecessary fields<a class="anchor-link" href="#Clean-the-Data-set-by-removing-unnecessary-fields">&#182;</a></h5>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -14356,20 +14381,8 @@ a.anchor-link {
     <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span>
     <span class="n">value_name</span><span class="o">=</span><span class="s1">&#39;Confirmed&#39;</span>
 <span class="p">)</span>
-</pre></div>
 
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">deaths_usa_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">deaths_usa_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">]],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">deaths_usa_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">deaths_usa_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">]],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 <span class="n">deaths_dates</span> <span class="o">=</span> <span class="n">deaths_usa_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">6</span><span class="p">:]</span>
 <span class="n">deaths_df_long</span> <span class="o">=</span> <span class="n">deaths_usa_df</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span>
     <span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Admin2&#39;</span><span class="p">,</span> <span class="s1">&#39;Province_State&#39;</span><span class="p">,</span> <span class="s1">&#39;Country_Region&#39;</span><span class="p">,</span> <span class="s1">&#39;Lat&#39;</span><span class="p">,</span> <span class="s1">&#39;Long_&#39;</span><span class="p">,</span> <span class="s1">&#39;Population&#39;</span><span class="p">],</span>
@@ -14377,20 +14390,10 @@ a.anchor-link {
     <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span>
     <span class="n">value_name</span><span class="o">=</span><span class="s1">&#39;Deaths&#39;</span>
 <span class="p">)</span>
-</pre></div>
 
-     </div>
-</div>
-</div>
-</div>
+<span class="c1">## Convert text to date and handle None for Province state</span>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">confirmed_df_long</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">confirmed_df_long</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
+<span class="n">confirmed_df_long</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">confirmed_df_long</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
 <span class="n">confirmed_df_long</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">confirmed_df_long</span><span class="o">.</span><span class="n">Province_State</span><span class="o">.</span><span class="n">isna</span><span class="p">(),</span><span class="s1">&#39;Province_State&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 <span class="n">confirmed_df_long</span> <span class="o">=</span> <span class="n">confirmed_df_long</span><span class="p">[(</span><span class="n">confirmed_df_long</span><span class="o">.</span><span class="n">Country_Region</span> <span class="o">==</span> <span class="s1">&#39;US&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
@@ -14404,10 +14407,18 @@ a.anchor-link {
 </div>
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><br>
+In the charts having full state Name will be not good so add state code to the dataset.
+<br></p>
+
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#hide</span>
@@ -14477,6 +14488,9 @@ a.anchor-link {
         <span class="k">return</span> <span class="n">col</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">state2abbr</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+
+<span class="n">confirmed_df_long</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">confirmed_df_long</span><span class="o">.</span><span class="n">Province_State</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">clean_state</span><span class="p">)</span>
+<span class="n">deaths_df_long</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">deaths_df_long</span><span class="o">.</span><span class="n">Province_State</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">clean_state</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14484,22 +14498,27 @@ a.anchor-link {
 </div>
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><br>
+<br>
+ Now try to remove more columns which we don't need in our analysis.
+<br>
+<br></p>
+
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">confirmed_df_long</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">confirmed_df_long</span><span class="o">.</span><span class="n">Province_State</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">clean_state</span><span class="p">)</span>
-
-<span class="n">confirmed_df_long</span> <span class="o">=</span> <span class="n">confirmed_df_long</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">confirmed_df_long</span> <span class="o">=</span> <span class="n">confirmed_df_long</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 
 <span class="n">confirmed_df_long</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">confirmed_df_long</span><span class="o">.</span><span class="n">columns</span><span class="p">[[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 
-<span class="n">deaths_df_long</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">deaths_df_long</span><span class="o">.</span><span class="n">Province_State</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">clean_state</span><span class="p">)</span>
-
 <span class="n">deaths_df_long</span> <span class="o">=</span> <span class="n">deaths_df_long</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-
 <span class="c1"># print(deaths_df_long.head())</span>
 <span class="n">deaths_df_long</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">deaths_df_long</span><span class="o">.</span><span class="n">columns</span><span class="p">[[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
@@ -14509,10 +14528,22 @@ a.anchor-link {
 </div>
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><br>
+<br>
+Grouping the Confirmed cases and Daily cases dataset as we don't need county level data
+<br>
+Calculate the Difference as well so that we can get the new cases daily.
+<br>
+<br></p>
+
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">us_state_daily_confirmed_df</span> <span class="o">=</span> <span class="p">(</span><span class="n">confirmed_df_long</span>
@@ -14528,20 +14559,8 @@ a.anchor-link {
             <span class="n">Population</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Population&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">)</span>
             <span class="p">)</span>
         <span class="p">)</span>
-</pre></div>
 
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">us_state_daily_confirmed_df</span><span class="p">[</span><span class="s1">&#39;new_cases&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">us_state_daily_confirmed_df</span><span class="o">.</span><span class="n">Confirmed</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
+<span class="n">us_state_daily_confirmed_df</span><span class="p">[</span><span class="s1">&#39;new_cases&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">us_state_daily_confirmed_df</span><span class="o">.</span><span class="n">Confirmed</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
 <span class="n">us_state_daily_confirmed_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">us_state_daily_confirmed_df</span><span class="o">.</span><span class="n">new_cases</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;new_cases&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">us_state_daily_confirmed_df</span> <span class="o">=</span> <span class="n">us_state_daily_confirmed_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 
@@ -14555,10 +14574,20 @@ a.anchor-link {
 </div>
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><br>
+<br>
+Merge both the dataframe together to see confirmed and deaths together.
+<br>
+<br></p>
+
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">usa_state_confirmed_death_df</span> <span class="o">=</span> <span class="n">us_state_daily_confirmed_df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
@@ -14590,57 +14619,15 @@ a.anchor-link {
 </div>
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Task-1-first-chart-for-Total-Confirmed-cases-vs-Total-Deaths">Task 1 first chart for Total Confirmed cases vs Total Deaths<a class="anchor-link" href="#Task-1-first-chart-for-Total-Confirmed-cases-vs-Total-Deaths">&#182;</a></h2>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">usa_state_confirmed_death_df</span><span class="o">.</span><span class="n">tail</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">usa_confirmed_death_df</span><span class="o">.</span><span class="n">tail</span><span class="p">())</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>      state       Date  Confirmed  new_cases  Deaths  Population  new_deaths
-45651    WY 2022-06-13     159907          0    1824      578759           0
-45652    WY 2022-06-14     162160       2253    1824      578759           0
-45653    WY 2022-06-15     162160          0    1824      578759           0
-45654    WY 2022-06-16     162160          0    1824      578759           0
-45655    WY 2022-06-17     162160          0    1824      578759           0
-          Date  Confirmed  new_cases   Deaths  new_deaths  Population
-873 2022-06-13   85578022     150586  1010991         276   332492855
-874 2022-06-14   85669953      91931  1011372         381   332492855
-875 2022-06-15   85852460     182507  1012052         683   332492855
-876 2022-06-16   85968741     116281  1012092         420   332492855
-877 2022-06-17   86127209     158468  1012802         710   332492855
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">base</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">usa_confirmed_death_df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
@@ -14665,19 +14652,19 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
 
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 
-<div id="altair-viz-258326971a514b7da3312572401e02d3"></div>
+<div id="altair-viz-a8da9356c12d4351afd4be2e90be71fd"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-258326971a514b7da3312572401e02d3") {
-      outputDiv = document.getElementById("altair-viz-258326971a514b7da3312572401e02d3");
+    if (outputDiv.id !== "altair-viz-a8da9356c12d4351afd4be2e90be71fd") {
+      outputDiv = document.getElementById("altair-viz-a8da9356c12d4351afd4be2e90be71fd");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -14733,10 +14720,15 @@ a.anchor-link {
 
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Task-1-second-chart-for-Daily-Cases-and-Daily-Death">Task 1 second chart for Daily Cases and Daily Death<a class="anchor-link" href="#Task-1-second-chart-for-Daily-Cases-and-Daily-Death">&#182;</a></h2>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">base</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">usa_confirmed_death_df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
@@ -14761,19 +14753,19 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
 
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 
-<div id="altair-viz-2c51d222df4243f087cd158d1f455336"></div>
+<div id="altair-viz-35e1f680f2ff4905b8e4e7b25cf966d9"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-2c51d222df4243f087cd158d1f455336") {
-      outputDiv = document.getElementById("altair-viz-2c51d222df4243f087cd158d1f455336");
+    if (outputDiv.id !== "altair-viz-35e1f680f2ff4905b8e4e7b25cf966d9") {
+      outputDiv = document.getElementById("altair-viz-35e1f680f2ff4905b8e4e7b25cf966d9");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -14829,20 +14821,21 @@ a.anchor-link {
 
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Task-2-Top-five-state-New-cases-analysis">Task 2 Top five state New cases analysis<a class="anchor-link" href="#Task-2-Top-five-state-New-cases-analysis">&#182;</a></h2>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">top_impacted_states</span> <span class="o">=</span> <span class="n">usa_state_confirmed_death_df</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span><span class="s1">&#39;Confirmed&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Get the top five impacted states</span>
+<span class="n">top_impacted_states</span> <span class="o">=</span> <span class="n">usa_state_confirmed_death_df</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span><span class="s1">&#39;Confirmed&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">top_impacted_states</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">usa_state_confirmed_death_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 <span class="n">top_five_state_df</span><span class="o">=</span><span class="n">usa_state_confirmed_death_df</span><span class="p">[</span><span class="n">usa_state_confirmed_death_df</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">top_impacted_states</span><span class="p">)]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">top_five_state_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 
 <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">top_five_state_df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="s1">&#39;yearmonth(Date):O&#39;</span><span class="p">,</span>
@@ -14871,43 +14864,19 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>[&#39;CA&#39;, &#39;TX&#39;, &#39;FL&#39;, &#39;NY&#39;, &#39;IL&#39;]
-  state       Date  Confirmed  new_cases  Deaths  Population  new_deaths
-0    AK 2020-01-22          0          0       0      740995           0
-1    AK 2020-01-23          0          0       0      740995           0
-2    AK 2020-01-24          0          0       0      740995           0
-3    AK 2020-01-25          0          0       0      740995           0
-4    AK 2020-01-26          0          0       0      740995           0
-     state       Date  Confirmed  new_cases  Deaths  Population  new_deaths
-3512    CA 2020-01-22          0          0       0    39512223           0
-3513    CA 2020-01-23          0          0       0    39512223           0
-3514    CA 2020-01-24          0          0       0    39512223           0
-3515    CA 2020-01-25          0          0       0    39512223           0
-3516    CA 2020-01-26          2          2       0    39512223           0
-</pre>
-</div>
-</div>
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
 
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 
-<div id="altair-viz-073dbced2d5c4ac3b3020ce6218601e9"></div>
+<div id="altair-viz-47f782e824d34d6cb6268f9a8e862b65"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-073dbced2d5c4ac3b3020ce6218601e9") {
-      outputDiv = document.getElementById("altair-viz-073dbced2d5c4ac3b3020ce6218601e9");
+    if (outputDiv.id !== "altair-viz-47f782e824d34d6cb6268f9a8e862b65") {
+      outputDiv = document.getElementById("altair-viz-47f782e824d34d6cb6268f9a8e862b65");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -14963,10 +14932,15 @@ a.anchor-link {
 
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="Not-used-in-my-Analysis,-just-created-to-see-how-line-chart-looks-instead-of-scattered-plot.">Not used in my Analysis, just created to see how line chart looks instead of scattered plot.<a class="anchor-link" href="#Not-used-in-my-Analysis,-just-created-to-see-how-line-chart-looks-instead-of-scattered-plot.">&#182;</a></h4>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">top_five_state_df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
@@ -14990,19 +14964,19 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
 
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 
-<div id="altair-viz-ae6c40fc281c479d896f3f60c84c8eab"></div>
+<div id="altair-viz-10dbdb5d2b56453ba7e74e36edbf77c4"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-ae6c40fc281c479d896f3f60c84c8eab") {
-      outputDiv = document.getElementById("altair-viz-ae6c40fc281c479d896f3f60c84c8eab");
+    if (outputDiv.id !== "altair-viz-10dbdb5d2b56453ba7e74e36edbf77c4") {
+      outputDiv = document.getElementById("altair-viz-10dbdb5d2b56453ba7e74e36edbf77c4");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -15056,20 +15030,6 @@ a.anchor-link {
 
 </div>
 
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
 </div>
 
 </div>
